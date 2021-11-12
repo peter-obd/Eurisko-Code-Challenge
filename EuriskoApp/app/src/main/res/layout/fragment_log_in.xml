@@ -1,0 +1,69 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="login.LogInFragment">
+
+    <data>
+        <variable
+            name="myLoginViewModel"
+            type="login.LogInViewModel" />
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/LiEmailET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259"
+        android:hint="@string/email_ET"
+        android:autofillHints="emailAddress"
+        android:text="@={myLoginViewModel.inputEmail}"/>
+
+    <EditText
+        android:id="@+id/LiPassET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/LiEmailET"
+        app:layout_constraintStart_toStartOf="@+id/LiEmailET"
+        app:layout_constraintTop_toBottomOf="@+id/LiEmailET"
+        android:hint="@string/password_ET"
+        android:autofillHints="password"
+        android:text="@={myLoginViewModel.inputPassword}"/>
+
+    <TextView
+        android:id="@+id/LiSignUpTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/LiLogInBtn"
+        app:layout_constraintStart_toStartOf="@+id/LiLogInBtn"
+        app:layout_constraintTop_toBottomOf="@+id/LiLogInBtn" />
+
+    <Button
+        android:id="@+id/LiLogInBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/login_btn"
+        android:onClick="@{()-> myLoginViewModel.loginButton()}"
+        app:layout_constraintEnd_toEndOf="@+id/LiPassET"
+        app:layout_constraintStart_toStartOf="@+id/LiPassET"
+        app:layout_constraintTop_toBottomOf="@+id/LiPassET" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

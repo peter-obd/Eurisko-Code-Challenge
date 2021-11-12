@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="signup.SignUpFragment">
+
+    <data>
+        <variable
+            name="mySignUpViewModel"
+            type="signup.SignUpViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/SuEmailET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.223"
+        android:hint="@string/email_ET"
+        android:autofillHints="emailAddress"
+        android:text="@={mySignUpViewModel.inputEmail}"/>
+
+    <EditText
+        android:id="@+id/SuPassET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/SuEmailET"
+        app:layout_constraintStart_toStartOf="@+id/SuEmailET"
+        app:layout_constraintTop_toBottomOf="@+id/SuEmailET"
+        android:hint="@string/password_ET"
+        android:autofillHints="password"
+        android:text="@={mySignUpViewModel.inputPassword}"/>
+
+    <EditText
+        android:id="@+id/SuVerfPassET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/SuPassET"
+        app:layout_constraintStart_toStartOf="@+id/SuPassET"
+        app:layout_constraintTop_toBottomOf="@+id/SuPassET"
+        android:hint="@string/password_verification_ET"
+        android:autofillHints="password"
+        android:text="@={mySignUpViewModel.inputVerifyPassword}"/>
+
+    <EditText
+        android:id="@+id/SuFirstNameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/SuVerfPassET"
+        app:layout_constraintStart_toStartOf="@+id/SuVerfPassET"
+        app:layout_constraintTop_toBottomOf="@+id/SuVerfPassET"
+        android:hint="@string/firstname_ET"
+        android:autofillHints="name"
+        android:text="@={mySignUpViewModel.inputFirstName}"/>
+
+    <EditText
+        android:id="@+id/SuLastNameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/SuFirstNameET"
+        app:layout_constraintStart_toStartOf="@+id/SuFirstNameET"
+        app:layout_constraintTop_toBottomOf="@+id/SuFirstNameET"
+        android:hint="@string/lastname_ET"
+        android:autofillHints="name"
+        android:text="@={mySignUpViewModel.inputLastName}"/>
+
+    <Button
+        android:id="@+id/SuSignUpBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/signup_btn"
+        android:onClick="@{()-> mySignUpViewModel.submitButton()}"
+        app:layout_constraintEnd_toEndOf="@+id/SuLastNameET"
+        app:layout_constraintStart_toStartOf="@+id/SuLastNameET"
+        app:layout_constraintTop_toBottomOf="@+id/SuLastNameET" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
